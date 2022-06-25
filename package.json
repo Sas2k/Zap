@@ -1,0 +1,20 @@
+{
+  "name": "zap-api-client",
+  "version": "1.0.0",
+  "description": "A terminal api client",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "zap"
+  ],
+  "bin": "src/index.js",
+  "author": "Sasen Perera",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "commander": "^9.3.0"
+  }
+}
