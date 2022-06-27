@@ -9,7 +9,7 @@ const config = {
   title: 'Zap! Doc',
   tagline: 'Zap!',
   url: 'https://sas2k.github.io',
-  baseUrl: '/Zap/build/index.html/',
+  baseUrl: '/Zap/docs/build/',
   onBrokenLinks: 'throw',
   trailingSlash: false,
   onBrokenMarkdownLinks: 'warn',
