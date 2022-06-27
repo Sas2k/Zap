@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Zap! Doc',
+  tagline: 'Zap!',
   url: 'https://sas2k.github.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -17,8 +17,10 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
+  deploymentBranch: 'Main',
   organizationName: 'Sas2k', // Usually your GitHub org/user name.
   projectName: 'Zap', // Usually your repo name.
+  
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -89,7 +91,7 @@ const config = {
             items: [
               {
                 label: "None Yet",
-                href: "None"
+                href: "https://github.com/Sas2k"
               }
             ],
           },
