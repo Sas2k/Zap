@@ -1,5 +1,5 @@
 {
-  "name": "zap",
+  "name": "zap-client",
   "version": "1.1.5",
   "description": "A terminal api client",
   "main": "src/index.js",
