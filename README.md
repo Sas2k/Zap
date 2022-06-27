@@ -1,5 +1,5 @@
 
-![Logo](docs/ZAP!-logo.png)
+![Logo](docs/docs/img/ZAP!-logo.png)
 
 
 # Zap! ⚡
