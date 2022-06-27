@@ -5,7 +5,6 @@ import { Command } from "commander"
 const program = new Command()
 let zap = new client();
 
-
 program
     .name("zap")
     .description("A Terminal API Client.")

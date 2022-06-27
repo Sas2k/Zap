@@ -1,5 +1,6 @@
 //imports
 import axios from 'axios';
+import { stats, errors, response } from "./log.js";
 
 export class client{
     constructor(){};
@@ -9,21 +10,25 @@ export class client{
             axios
                 .get(url)
                 .then(res => {
-                    console.log(`statusCode: ${res.status}`);
-                    console.log(res);
+                    console.log(stats(`statusCode: ${res.status}`));
+                    console.log(response(res));
                 })
                 .catch(error => {
-                    console.error(error);
+                    console.log(errors(error.response.data));
+                    console.log(errors(error.response.status));
+                    console.log(errors(error.response.headers));
                 });
         } else{
             axios
                 .get(url)
                 .then(res => {
-                    console.log(`statusCode: ${res.status}`)
-                    console.log(res.data)
+                    console.log(stats(`statusCode: ${res.status}`));
+                    console.log(response(res.data))
                 })
                 .catch(error => {
-                    console.log(error);
+                    console.log(errors(error.response.data));
+                    console.log(errors(error.response.status));
+                    console.log(errors(error.response.headers));
                 });
         };
     };
@@ -59,21 +64,25 @@ export class client{
             axios
                 .post(url, jdata, { contentHeader })
                 .then(res => {
-                    console.log(`statusCode: ${res.status}`)
-                    console.log(res)
+                    console.log(stats(`statusCode: ${res.status}`));
+                    console.log(response(res));
                 })
                 .catch(error => {
-                    console.log(error);
-                })
+                    cconsole.log(errors(error.response.data));
+                    console.log(errors(error.response.status));
+                    console.log(errors(error.response.headers));
+                });
         } else {
             axios
                 .post(url, jdata, { contentHeader })
                 .then(res => {
-                    console.log(`statusCode: ${res.status}`)
-                    console.log(res.data)
+                    console.log(stats(`statusCode: ${res.status}`));
+                    console.log(response(res.data))
                 })
                 .catch(error => {
-                    console.log(error)
+                    console.log(errors(error.response.data));
+                    console.log(errors(error.response.status));
+                    console.log(errors(error.response.headers));
                 })
         }
     };
@@ -83,21 +92,25 @@ export class client{
             axios
                 .delete(url)
                 .then(res => {
-                    console.log(`statusCode: ${res.status}`)
-                    console.log(res)
+                    console.log(stats(`statusCode: ${res.status}`));
+                    console.log(response(res));
                 })
                 .catch(error => {
-                    console.log(error)
+                    console.log(errors(error.response.data));
+                    console.log(errors(error.response.status));
+                    console.log(errors(error.response.headers));
                 });
         } else {
             axios
                 .delete(url)
                 .then(res => {
-                    console.log(`statusCode: ${res.status}`)
-                    console.log(res.data)
+                    console.log(stats(`statusCode: ${res.status}`));
+                    console.log(response(res.data))
                 })
                 .catch(error => {
-                    console.log(error)
+                    console.log(errors(error.response.data));
+                    console.log(errors(error.response.status));
+                    console.log(errors(error.response.headers));
                 });
         }
     };
