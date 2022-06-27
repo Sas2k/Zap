@@ -8,11 +8,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
-  url: 'https://sas2k.github.io/Zap!/',
+  url: 'https://sas2k.github.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
+  trailingSlash: false,
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/ZAP!-logo.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -38,11 +39,11 @@ const config = {
           // Remove this to remove the "edit this page" links.
           routeBasePath: '/',
           editUrl:
-            'https://github.com/sas2k/Zap/tree/main/docs/packages/create-docusaurus/templates/shared/',
+            'https://github.com/sas2k/Zap/tree/main/docs/docs/',
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./static/css/custom.css'),
         },
       }),
     ],
@@ -79,7 +80,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/intro',
               },
             ],
           },
@@ -97,7 +98,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/Sas2k/Zap',
               },
             ],
           },
