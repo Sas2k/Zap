@@ -17,7 +17,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  deploymentBranch: 'Main',
+  deploymentBranch: 'main',
   organizationName: 'Sas2k', // Usually your GitHub org/user name.
   projectName: 'Zap', // Usually your repo name.
   
