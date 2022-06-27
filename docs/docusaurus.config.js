@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Zap! Doc',
   tagline: 'Zap!',
-  url: 'https://sas2k.github.io/',
-  baseUrl: '/',
+  url: 'https://sas2k.github.io',
+  baseUrl: '/zap/',
   onBrokenLinks: 'throw',
   trailingSlash: false,
   onBrokenMarkdownLinks: 'warn',
