@@ -1,5 +1,5 @@
 
-![Logo](https://github.com/Sas2k/Zap/blob/main/docs/static/img/ZAP!-logo.png)
+<img src=https://github.com/Sas2k/Zap/blob/main/docs/static/img/ZAP!-logo.png width=128 height=128>
 
 
 # Zap! ⚡
