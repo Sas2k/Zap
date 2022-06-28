@@ -31,7 +31,7 @@ Needs to be Done.
 ## Badges
 
 ![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?color=blue&style=for-the-badge)
-![NPM Install](https://img.shields.io/npm/dw/Zap?color=blue&style=for-the-badge)
+![NPM Install](https://img.shields.io/npm/dw/zap-client?color=blue&style=for-the-badge)
 ![Last Commit](https://img.shields.io/github/last-commit/sas2k/Zap?color=blue&style=for-the-badge)
 ## License
 
