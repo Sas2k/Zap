@@ -40,7 +40,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           routeBasePath: '/',
           editUrl:
-            'https://github.com/sas2k/Zap/tree/main/docs/docs/',
+            'https://github.com/sas2k/Zap/tree/main/docs/',
         },
         blog: false,
         theme: {
@@ -54,15 +54,15 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'Zap! Documentation',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Logo',
           src: 'img/ZAP!-logo.png',
         },
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'Usage/Quick-Start',
             position: 'left',
             label: 'Docuementation',
           },
@@ -81,7 +81,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/intro',
+                to: 'Usage/Quick-Start',
               },
             ],
           },
