@@ -8,10 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "zap"
+    "zap", "cli", "api", "client"
   ],
   "bin": "src/index.js",
-  "author": "Sasen Perera",
+  "author": "Sasen Perera (https://github.com/Sas2k)",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",

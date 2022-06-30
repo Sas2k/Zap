@@ -8,7 +8,7 @@ In your terminal,
 
 with npx;
 ```bash
-npx zap-client get https://jsonplaceholder.typicode.com/posts/1
+$ npx zap-client get https://jsonplaceholder.typicode.com/posts/1
 ```
 ```json
 'statusCode: 200'
