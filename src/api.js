@@ -15,7 +15,8 @@ export class client{
                     console.log(response(res));
                 })
                 .catch(error => {
-                    console.log(errors(error.response.data));
+                    let data = Object.values(error.response).includes('data');
+                    data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                     console.log(errors(error.response.status));
                     console.log(errors(error.response.headers));
                 });
@@ -27,7 +28,8 @@ export class client{
                     console.log(response(res.data))
                 })
                 .catch(error => {
-                    console.log(errors(error.response.data));
+                    let data = Object.values(error.response).includes('data');
+                    data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                     console.log(errors(error.response.status));
                     console.log(errors(error.response.headers));
                 });
@@ -46,7 +48,8 @@ export class client{
                         console.log(response(res));
                     })
                     .catch(error => {
-                        cconsole.log(errors(error.response.data));
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                         console.log(errors(error.response.status));
                         console.log(errors(error.response.headers));
                     });
@@ -55,10 +58,11 @@ export class client{
                     .post(url, jdata, { contentHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
-                        console.log(response(res.data))
+                        console.log(response(res.data));
                     })
                     .catch(error => {
-                        console.log(errors(error.response.data));
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                         console.log(errors(error.response.status));
                         console.log(errors(error.response.headers));
                     })
@@ -79,14 +83,15 @@ export class client{
                     .then(res =>{
                         if (verboose === true){
                             console.log(stats(res.status))
-                            console.log(response(res))
+                            console.log(response(res));
                         } else {
                             console.log(stats(res.status))
-                            console.log(response(res.data))
+                            console.log(response(res.data));
                         }
                     })
                     .catch(error => {
-                        console.log(errors(error.response.data));
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                         console.log(errors(error.response.status));
                         console.log(errors(error.response.headers));
                     });
@@ -126,7 +131,8 @@ export class client{
                     console.log(response(res));
                 })
                 .catch(error => {
-                    console.log(errors(error.response.data));
+                    let data = Object.values(error.response).includes('data');
+                    data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                     console.log(errors(error.response.status));
                     console.log(errors(error.response.headers));
                 });
@@ -135,10 +141,11 @@ export class client{
                 .delete(url)
                 .then(res => {
                     console.log(stats(`statusCode: ${res.status}`));
-                    console.log(response(res.data))
+                    console.log(response(res.data));
                 })
                 .catch(error => {
-                    console.log(errors(error.response.data));
+                    let data = Object.values(error.response).includes('data');
+                    data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                     console.log(errors(error.response.status));
                     console.log(errors(error.response.headers));
                 });
@@ -157,7 +164,8 @@ export class client{
                         console.log(response(res));
                     })
                     .catch(error => {
-                        cconsole.log(errors(error.response.data));
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                         console.log(errors(error.response.status));
                         console.log(errors(error.response.headers));
                     });
@@ -169,7 +177,8 @@ export class client{
                         console.log(response(res.data))
                     })
                     .catch(error => {
-                        console.log(errors(error.response.data));
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                         console.log(errors(error.response.status));
                         console.log(errors(error.response.headers));
                     })
@@ -197,7 +206,8 @@ export class client{
                         }
                     })
                     .catch(error => {
-                        console.log(errors(error.response.data));
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                         console.log(errors(error.response.status));
                         console.log(errors(error.response.headers));
                     });
