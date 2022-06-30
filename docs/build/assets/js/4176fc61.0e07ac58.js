@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[287],{5727:t=>{t.exports=JSON.parse('{"title":"Installation","description":"Installation.","slug":"/category/installation","permalink":"/Zap/docs/build/category/installation","navigation":{"next":{"title":"Installation","permalink":"/Zap/docs/build/Installation/Install"}}}')}}]);
