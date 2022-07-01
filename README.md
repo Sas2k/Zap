@@ -1,5 +1,5 @@
 
-<img src=https://github.com/Sas2k/Zap/blob/main/docs/static/img/ZAP!-logo.png width=128 height=128>
+<img src=docs/static/img/ZAP!-logo.png width=128 height=128>
 
 # Zap! ⚡
 A light-weight Terminal API Client. built with Node.js
@@ -30,8 +30,19 @@ npm install -g zap-client
 
 ## Demo
 
-Needs to be Done.
+![demo](Media/demo_2.gif)
 
+## Examples
+
+A simple `get` request
+```bash
+npx zap-client get https://jsonplaceholder.typicode.com/posts/100
+```
+
+Another simple `post` request
+```bash
+npx zap-client get https://jsonplaceholder.typicode.com/posts/ json '{\"title\":\"Hello\",\"body\":\"World!\"}'
+```
 
 ## Documentation
 
@@ -46,7 +57,6 @@ Needs to be Done.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
 
 ## Authors
 
