@@ -9,7 +9,7 @@ let zap = new client();
 Program
     .name("zap")
     .description("A light-weight Terminal API Client. built with Node.js \n Build By Sas2k.")
-    .version("1.3.4", "-v, --version")
+    .version("1.4.0", "-v, --version")
     .option("-vb, --verbose", "Verbosity")
     .option("-hr, --header <header>", "Authorization scheme and parameter")
 
