@@ -23,8 +23,13 @@ npx zap-client put <url> <dataType> <data>
 
 `data`: The data to put.
 
-### Optional Flags
-`-vb | --verboose`: Verboosity
+### Flags
+
+#### Local Flags
+None
+
+#### Global Flags 
+[Flags](https://sas2k.github.io/Zap/docs/build/Usage/Global-Flags)
 
 ## Example Use
 

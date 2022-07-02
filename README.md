@@ -1,5 +1,5 @@
 
-<img src=docs/static/img/ZAP!-logo.png width=128 height=128>
+<img src="https://github.com/Sas2k/Zap/raw/main/docs/static/img/ZAP!-logo.png" width=128 height=128>
 
 # Zap! ⚡
 A light-weight Terminal API Client. built with Node.js
@@ -26,11 +26,11 @@ npm install -g zap-client
   - xml
   - text
   - form
-- Colored Output and Errors
+- Formatted Outputs and Errors
 
 ## Demo
 
-![demo](Media/demo_2.gif)
+![demo](https://github.com/Sas2k/Zap/raw/main/Media/demo_2.gif)
 
 ## Examples
 

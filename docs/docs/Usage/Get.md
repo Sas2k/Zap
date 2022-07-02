@@ -10,8 +10,13 @@ sends a `GET` request to the specify URL.
 ## Arguments
 `url` : The *url* to request
 
-### Optional Flags
-`-vb | --verboose` : Verboosity
+### Flags
+
+#### Local Flags
+None
+
+#### Global Flags 
+[Flags](https://sas2k.github.io/Zap/docs/build/Usage/Global-Flags)
 
 ## Example Use
 

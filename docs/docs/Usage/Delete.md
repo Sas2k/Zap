@@ -12,8 +12,13 @@ npx zap-client delete <url>
 ## Arguments
 `url`: The url to send requests
 
-### Optional Flags
-`-vb | --verboose`: Verboosity
+### Flags
+
+#### Local Flags
+None
+
+#### Global Flags 
+[Flags](https://sas2k.github.io/Zap/docs/build/Usage/Global-Flags)
 
 ## Example Use
 

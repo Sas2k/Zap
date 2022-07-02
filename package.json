@@ -16,6 +16,7 @@
   "bin": "src/index.js",
   "author": "Sasen Perera (https://github.com/Sas2k)",
   "license": "MIT",
+  "homepage": "https://github.com/Sas2k/Zap",
   "dependencies": {
     "axios": "^0.27.2",
     "chalk": "^5.0.1",

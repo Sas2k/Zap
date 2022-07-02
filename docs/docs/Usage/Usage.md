@@ -1,6 +1,12 @@
 # Usage
 
-- [Get](Get.md)
-- [Post](Post.md)
-- [Put](Put.md)
-- [Delete](Delete.md)
+## Commands
+
+- [Get](Usage/Get)
+- [Post](Usage/Post)
+- [Put](Usage/Put)
+- [Delete](Usage/Delete)
+
+## Other
+
+- [Global Flags](Usage/Global-Flags)

@@ -22,8 +22,13 @@ sends a `POST` request to the specified url.
 
 `data`: The data to Post.
 
-### Optional Flags
-`-vb | --verboose`: Verboosity
+### Flags
+
+#### Local Flags
+None
+
+#### Global Flags 
+[Flags](https://sas2k.github.io/Zap/docs/build/Usage/Global-Flags)
 
 ## Example Use
 

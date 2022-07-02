@@ -1,61 +1,60 @@
 #!/usr/bin/env node
 import { client } from "./api.js";
-import { Command } from "commander"
+import { Command, program } from "commander"
 import chalk from "chalk"
 
-const program = new Command()
+const Program = new Command()
 let zap = new client();
 
-program
+Program
     .name("zap")
-    .description("A Terminal API Client.")
-    .version("1.0.0")
+    .description("A light-weight Terminal API Client. built with Node.js \n Build By Sas2k.")
+    .version("1.3.4", "-v, --version")
+    .option("-vb, --verbose", "Verbosity")
+    .option("-hr, --header <header>", "Authorization scheme and parameter")
 
 // --main commands--
 
 //  Get:
-program.command("get")
+Program.command("get")
     .description(`sends a ${chalk.italic.blue('GET')} request to a url.`)
     .argument("url", "The Url")
-    .option("-vb, --verboose", "Verboosity")
     .aliases(["g", "G", "GET"])
-    .action((url, options) => {
-        zap.get_url(url, options.verboose)
+    .action((url) => {
+        zap.get_url(url, Program.opts().verbose, program.opts().auth)
+        console.log(program.opts().header)
     });
 
 //  Post:
-program.command("post")
+Program.command("post")
     .description(`Sends a ${chalk.italic.blue('POST')} request to a url`)
     .argument("url", "The URL")
     .argument("dataType", "The DataType [json, form, text, xml]")
     .argument("data", "The data")
-    .option("-vb, --verboose", "Verboosity")
     .aliases(["POST"])
-    .action((url, dataType, data , options) => {
-        zap.post_url(url, data, dataType, options.verboose)
+    .action((url, dataType, data) => {
+        zap.post_url(url, data, dataType, Program.opts().verbose, program.opts().header)
     });
 
 // Delete:
-program.command("delete")
+Program.command("delete")
     .description(`Sends a ${chalk.italic.blue('DELETE')} request to a URL.`)
     .argument("url", "The URL")
-    .option("-vb, --verboose", "Verboosity")
     .alias(["d", "D", "DELETE"])
-    .action((url, options) => {
-        zap.delete_url(url, options.verboose)
+    .action((url) => {
+        zap.delete_url(url, Program.opts().verbose, program.opts().header)
     });
 
 // Put:
-program.command("put")
+Program.command("put")
     .description(`Sends a ${chalk.italic.blue('PUT')} request to a URL`)
     .argument("url", "The URL")
     .argument("dataType", "The data type [json, xml, text, form]")
     .argument("data", `The data to ${chalk.italic.blue('PUT')}.`)
-    .option("-vb, --verboose", "Verboosity")
     .alias(["PUT"])
-    .action((url, dataType, data, options) => {
-        zap.put_url(url, dataType, data, options.verboose)
+    .action((url, dataType, data) => {
+        zap.put_url(url, dataType, data, Program.opts().verbose, program.opts().header)
     })
 
 //Running the program
-program.parse();
+Program.parse();

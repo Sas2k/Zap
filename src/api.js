@@ -6,10 +6,15 @@ import { parseString } from 'xml2js';
 export class client{
     constructor(){};
 
-    get_url(url, verboose){
+    get_url(url, verboose, ContHeader){
+        if(!ContHeader){
+            ContHeader = {}
+        } else {
+            ContHeader = JSON.parse(ContHeader)
+        }
         if (verboose === true){
             axios
-                .get(url)
+                .get(url, { ContHeader })
                 .then(res => {
                     console.log(stats(`statusCode: ${res.status}`));
                     console.log(response(res));
@@ -22,7 +27,7 @@ export class client{
                 });
         } else{
             axios
-                .get(url)
+                .get(url, { ContHeader })
                 .then(res => {
                     console.log(stats(`statusCode: ${res.status}`));
                     console.log(response(res.data))
@@ -32,13 +37,19 @@ export class client{
                     data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                     console.log(errors(error.response.status));
                     console.log(errors(error.response.headers));
+                    console.log(ContHeader)
                 });
         };
     };
 
-    post_url(url, data, type, verboose){
+    post_url(url, data, type, verboose, ContHeader = false){
         let contentHeader;
         let jdata;
+        if(ContHeader != false){
+            contentHeader = JSON.parse(ContHeader)
+        } else {
+            contentHeader = {}
+        };
         const post = (urla, jdata, verboosity , contentHeader) => {
             if (verboosity === true){
                 axios
@@ -70,13 +81,13 @@ export class client{
         };
         switch (type) {
             case "json":
-                contentHeader = {"content-type": "application/json"}
+                contentHeader["content-type"] = "application/json"
                 jdata = JSON.parse(data)
                 post(url, jdata, verboose, contentHeader)
                 break;
             
             case "form":
-                contentHeader = {"content-type": "multipart/form-data"}
+                contentHeader["content-type"] = "multipart/form-data"
                 jdata = data;
                 axios
                     .postForm(url, jdata, { contentHeader })
@@ -99,13 +110,13 @@ export class client{
                 break;
 
             case "text":
-                contentHeader = {"content-type": "text/plain"};
+                contentHeader["content-type"] = "text/plain";
                 jdata = data;
                 post(url, jdata, verboose, contentHeader)
                 break;
 
             case "xml":
-                contentHeader = {"content-type": "application/xml"};
+                contentHeader["content-type"] = "application/xml";
                 jdata = parseString(data, function (err, result){
                     if(verboose == true){
                         console.log(result)
@@ -115,17 +126,22 @@ export class client{
                 break;
 
             default:
-                contentHeader = {"content-type": "application/json"}
+                contentHeader["content-type"] = "application/json"
                 jdata = JSON.parse(data)
                 post(url, jdata, verboose, contentHeader)
                 break;
         }
     };
 
-    delete_url(url, verboose){
+    delete_url(url, verboose, ContHeader = false){
+        if(ContHeader != false){
+            var contHeader = JSON.parse(ContHeader)
+        } else {
+            var contHeader = {};    
+        };
         if(verboose == true){
             axios
-                .delete(url)
+                .delete(url, { contHeader })
                 .then(res => {
                     console.log(stats(`statusCode: ${res.status}`));
                     console.log(response(res));
@@ -138,7 +154,7 @@ export class client{
                 });
         } else {
             axios
-                .delete(url)
+                .delete(url, { contHeader })
                 .then(res => {
                     console.log(stats(`statusCode: ${res.status}`));
                     console.log(response(res.data));
@@ -152,9 +168,14 @@ export class client{
         }
     };
 
-    put_url(url, type, data, verboose){
+    put_url(url, type, data, verboose, ContHeader = false){
         let contentHeader;
         let jdata;
+        if(ContHeader != false){
+            contentHeader = JSON.parse(ContHeader)
+        } else {
+            contentHeader = {}
+        };
         const put = (urla, jdata, verboosity , contentHeader) => {
             if (verboosity === true){
                 axios
@@ -186,13 +207,13 @@ export class client{
         };
         switch (type) {
             case "json":
-                contentHeader = {"content-type": "application/json"}
+                contentHeader["content-type"] = "application/json"
                 jdata = JSON.parse(data)
                 put(url, jdata, verboose, contentHeader)
                 break;
             
             case "form":
-                contentHeader = {"content-type": "multipart/form-data"}
+                contentHeader["content-type"] = "multipart/form-data"
                 jdata = data;
                 axios
                     .putForm(url, jdata, { contentHeader })
@@ -215,13 +236,13 @@ export class client{
                 break;
 
             case "text":
-                contentHeader = {"content-type": "text/plain"};
+                contentHeader["content-type"] = "text/plain";
                 jdata = data;
                 put(url, jdata, verboose, contentHeader)
                 break;
 
             case "xml":
-                contentHeader = {"content-type": "application/xml"};
+                contentHeader["content-type"] = "application/xml";
                 jdata = parseString(data, function (err, result){
                     if(verboose == true){
                         console.log(result)
@@ -231,7 +252,7 @@ export class client{
                 break;
 
             default:
-                contentHeader = {"content-type": "application/json"}
+                contentHeader["content-type"] = "application/json"
                 jdata = JSON.parse(data)
                 put(url, jdata, verboose, contentHeader)
                 break;
