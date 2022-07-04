@@ -1,6 +1,7 @@
 
-<img src="https://github.com/Sas2k/Zap/raw/main/docs/static/img/ZAP!-logo.png" width=128 height=128>
+<img src="https://github.com/Sas2k/Zap/raw/main/docs/static/img/ZAP!-logo.png" width=128 height=128 />
 
+[![Discord](https://img.shields.io/discord/993166600448520242?color=purple&label=Discord&style=for-the-badge)](https://discord.gg/MB2kR2Hh9Z)
 # Zap! ⚡
 A light-weight Terminal API Client. built with Node.js
 
