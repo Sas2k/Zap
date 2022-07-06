@@ -64,7 +64,7 @@ const config = {
             type: 'doc',
             docId: 'Usage/Usage',
             position: 'left',
-            label: 'Docuementation',
+            label: 'Documentation',
           },
           {
             href: 'https://github.com/Sas2k/Zap',
@@ -89,8 +89,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: "None Yet",
-                href: "https://github.com/Sas2k"
+                label: "Discord",
+                href: "https://discord.gg/MB2kR2Hh9Z"
               }
             ],
           },
