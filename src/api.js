@@ -2,44 +2,70 @@
 import axios from 'axios';
 import { stats, errors, response } from "./log.js";
 import { parseString } from 'xml2js';
+import { createWriteStream } from 'fs'
+import * as stream from 'stream';
+import { promisify } from 'util';
+
+const finished = promisify(stream.finished);
+
+// The download File Function
+export async function downloadFile(fileUrl, outputLocationPath) {
+    const writer = createWriteStream(outputLocationPath);
+    return axios({
+        method: 'get',
+        url: fileUrl,
+        responseType: 'stream',
+    })
+    .then(response => {
+        response.data.pipe(writer);
+        return finished(writer); //this is a Promise
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
 
 export class client{
     constructor(){};
 
-    get_url(url, verboose, ContHeader){
+    get_url(url, verboose, ContHeader, download){
         if(!ContHeader){
             ContHeader = {}
         } else {
             ContHeader = JSON.parse(ContHeader)
         }
-        if (verboose === true){
-            axios
-                .get(url, { ContHeader })
-                .then(res => {
-                    console.log(stats(`statusCode: ${res.status}`));
-                    console.log(response(res));
-                })
-                .catch(error => {
-                    let data = Object.values(error.response).includes('data');
-                    data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
-                    console.log(errors(error.response.status));
-                    console.log(errors(error.response.headers));
-                });
-        } else{
-            axios
-                .get(url, { ContHeader })
-                .then(res => {
-                    console.log(stats(`statusCode: ${res.status}`));
-                    console.log(response(res.data))
-                })
-                .catch(error => {
-                    let data = Object.values(error.response).includes('data');
-                    data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
-                    console.log(errors(error.response.status));
-                    console.log(errors(error.response.headers));
-                    console.log(ContHeader)
-                });
-        };
+        if(!download){
+            if (verboose === true){
+                axios
+                    .get(url, { ContHeader })
+                    .then(res => {
+                        console.log(stats(`statusCode: ${res.status}`));
+                        console.log(response(res));
+                    })
+                    .catch(error => {
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                        console.log(errors(error.response.status));
+                        console.log(errors(error.response.headers));
+                    });
+            } else{
+                axios
+                    .get(url, { ContHeader })
+                    .then(res => {
+                        console.log(stats(`statusCode: ${res.status}`));
+                        console.log(response(res.data))
+                    })
+                    .catch(error => {
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                        console.log(errors(error.response.status));
+                        console.log(errors(error.response.headers));
+                        console.log(ContHeader)
+                    });
+            };
+        } else {
+            downloadFile(url, download)
+        }
     };
 
     post_url(url, data, type, verboose, ContHeader = false){
