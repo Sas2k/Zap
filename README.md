@@ -28,6 +28,7 @@ npm install -g zap-client
   - text
   - form
 - Formatted Outputs and Errors
+- Downloading Outputs and Files
 
 ## Demo
 
