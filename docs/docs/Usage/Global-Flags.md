@@ -19,5 +19,5 @@ The custom header.
 
 ### example
 ```bash
-npx zap-client get https://<some-kind-of-url>/ --header '\"key\":\"value\"'
+npx zap-client get https://<some-kind-of-url>/ --header '{\"key\":\"value\"}'
 ```
