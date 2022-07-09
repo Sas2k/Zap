@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'No tests defined' && echo 'specify them on the package.json file'"
   },
   "keywords": [
     "zap",
@@ -21,6 +21,7 @@
     "axios": "^0.27.2",
     "chalk": "^5.0.1",
     "commander": "^9.3.0",
+    "cross-env": "^7.0.3",
     "xml2js": "^0.4.23"
   }
 }
