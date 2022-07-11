@@ -37,7 +37,7 @@ export class client{
         if(!download){
             if (verboose === true){
                 axios
-                    .get(url, { ContHeader })
+                    .get(url, { headers: ContHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
                         console.log(response(res));
@@ -50,7 +50,7 @@ export class client{
                     });
             } else{
                 axios
-                    .get(url, { ContHeader })
+                    .get(url, { headers: ContHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
                         console.log(response(res.data))
@@ -79,7 +79,7 @@ export class client{
         const post = (urla, jdata, verboosity , contentHeader) => {
             if (verboosity === true){
                 axios
-                    .post(urla, jdata, { contentHeader })
+                    .post(urla, jdata, { headers: contentHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
                         console.log(response(res));
@@ -92,7 +92,7 @@ export class client{
                     });
             } else {
                 axios
-                    .post(url, jdata, { contentHeader })
+                    .post(url, jdata, { headers: contentHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
                         console.log(response(res.data));
@@ -116,7 +116,7 @@ export class client{
                 contentHeader["content-type"] = "multipart/form-data"
                 jdata = data;
                 axios
-                    .postForm(url, jdata, { contentHeader })
+                    .postForm(url, jdata, { headers: contentHeader })
                     .then(res =>{
                         if (verboose === true){
                             console.log(stats(res.status))
@@ -167,7 +167,7 @@ export class client{
         };
         if(verboose == true){
             axios
-                .delete(url, { contHeader })
+                .delete(url, { headers: ContHeader })
                 .then(res => {
                     console.log(stats(`statusCode: ${res.status}`));
                     console.log(response(res));
@@ -180,7 +180,7 @@ export class client{
                 });
         } else {
             axios
-                .delete(url, { contHeader })
+                .delete(url, { headers: ContHeader })
                 .then(res => {
                     console.log(stats(`statusCode: ${res.status}`));
                     console.log(response(res.data));
@@ -205,7 +205,7 @@ export class client{
         const put = (urla, jdata, verboosity , contentHeader) => {
             if (verboosity === true){
                 axios
-                    .put(urla, jdata, { contentHeader })
+                    .put(urla, jdata, { headers: contentHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
                         console.log(response(res));
@@ -218,7 +218,7 @@ export class client{
                     });
             } else {
                 axios
-                    .put(url, jdata, { contentHeader })
+                    .put(url, jdata, { headers: contentHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
                         console.log(response(res.data))
@@ -242,7 +242,7 @@ export class client{
                 contentHeader["content-type"] = "multipart/form-data"
                 jdata = data;
                 axios
-                    .putForm(url, jdata, { contentHeader })
+                    .putForm(url, jdata, { headers: contentHeader })
                     .then(res =>{
                         if (verboose === true){
                             console.log(stats(res.status))

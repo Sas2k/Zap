@@ -43,7 +43,7 @@ npx zap-client get https://jsonplaceholder.typicode.com/posts/100
 
 Another simple `post` request
 ```bash
-npx zap-client get https://jsonplaceholder.typicode.com/posts/ json '{\"title\":\"Hello\",\"body\":\"World!\"}'
+npx zap-client post https://jsonplaceholder.typicode.com/posts/ json '{\"title\":\"Hello\",\"body\":\"World!\"}'
 ```
 
 ## Documentation

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { client } from "./api.js";
-import { Command, program } from "commander"
+import { Command } from "commander"
 import chalk from "chalk"
 
 const Program = new Command()
@@ -12,6 +12,7 @@ Program
     .version("1.5.0", "-v, --version")
     .option("-vb, --verbose", "Verbosity")
     .option("-hr, --header <header>", "the request header")
+    .option("-b, --body <body>", "The request body")
 
 // --main commands--
 
@@ -22,7 +23,7 @@ Program.command("get")
     .aliases(["g", "G", "GET"])
     .option("-d, --download <file>", "The option to say to download the output")
     .action((url, options) => {
-        zap.get_url(url, Program.opts().verbose, program.opts().header, options.download)
+        zap.get_url(url, Program.opts().verbose, Program.opts().header, options.download, Program.opts().body)
     });
 
 //  Post:
@@ -33,7 +34,7 @@ Program.command("post")
     .argument("data", "The data")
     .aliases(["POST"])
     .action((url, dataType, data) => {
-        zap.post_url(url, data, dataType, Program.opts().verbose, program.opts().header)
+        zap.post_url(url, data, dataType, Program.opts().verbose, Program.opts().header, Program.opts().body)
     });
 
 // Delete:
@@ -42,7 +43,7 @@ Program.command("delete")
     .argument("url", "The URL")
     .alias(["d", "D", "DELETE"])
     .action((url) => {
-        zap.delete_url(url, Program.opts().verbose, program.opts().header)
+        zap.delete_url(url, Program.opts().verbose, Program.opts().header, Program.opts().body)
     });
 
 // Put:
@@ -53,7 +54,7 @@ Program.command("put")
     .argument("data", `The data to ${chalk.italic.blue('PUT')}.`)
     .alias(["PUT"])
     .action((url, dataType, data) => {
-        zap.put_url(url, dataType, data, Program.opts().verbose, program.opts().header)
+        zap.put_url(url, dataType, data, Program.opts().verbose, Program.opts().header, Program.opts().body)
     })
 
 //Running the program
