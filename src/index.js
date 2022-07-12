@@ -9,10 +9,9 @@ let zap = new client();
 Program
     .name("zap")
     .description("A light-weight Terminal API Client. built with Node.js \n Build By Sas2k.")
-    .version("1.5.0", "-v, --version")
+    .version("1.5.3", "-v, --version")
     .option("-vb, --verbose", "Verbosity")
     .option("-hr, --header <header>", "the request header")
-    .option("-b, --body <body>", "The request body")
 
 // --main commands--
 
@@ -23,7 +22,7 @@ Program.command("get")
     .aliases(["g", "G", "GET"])
     .option("-d, --download <file>", "The option to say to download the output")
     .action((url, options) => {
-        zap.get_url(url, Program.opts().verbose, Program.opts().header, options.download, Program.opts().body)
+        zap.get_url(url, Program.opts().verbose, Program.opts().header, options.download)
     });
 
 //  Post:
@@ -34,7 +33,7 @@ Program.command("post")
     .argument("data", "The data")
     .aliases(["POST"])
     .action((url, dataType, data) => {
-        zap.post_url(url, data, dataType, Program.opts().verbose, Program.opts().header, Program.opts().body)
+        zap.post_url(url, data, dataType, Program.opts().verbose, Program.opts().header)
     });
 
 // Delete:
@@ -43,7 +42,7 @@ Program.command("delete")
     .argument("url", "The URL")
     .alias(["d", "D", "DELETE"])
     .action((url) => {
-        zap.delete_url(url, Program.opts().verbose, Program.opts().header, Program.opts().body)
+        zap.delete_url(url, Program.opts().verbose, Program.opts().header)
     });
 
 // Put:
@@ -54,7 +53,7 @@ Program.command("put")
     .argument("data", `The data to ${chalk.italic.blue('PUT')}.`)
     .alias(["PUT"])
     .action((url, dataType, data) => {
-        zap.put_url(url, dataType, data, Program.opts().verbose, Program.opts().header, Program.opts().body)
+        zap.put_url(url, dataType, data, Program.opts().verbose, Program.opts().header)
     })
 
 //Running the program
