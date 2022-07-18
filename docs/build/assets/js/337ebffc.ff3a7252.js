@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[800],{2761:e=>{e.exports=JSON.parse('{"title":"Usage","description":"Usage info for zap.","slug":"/category/usage","permalink":"/Zap/docs/build/category/usage","navigation":{"next":{"title":"Delete","permalink":"/Zap/docs/build/Usage/Delete"}}}')}}]);
