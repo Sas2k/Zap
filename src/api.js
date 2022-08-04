@@ -28,43 +28,78 @@ export async function downloadFile(fileUrl, outputLocationPath) {
 export class client{
     constructor(){};
 
-    get_url(url, verboose, ContHeader, download){
+    get_url(url, verboose, ContHeader, download, body){
         if(!ContHeader){
             ContHeader = {}
         } else {
             ContHeader = JSON.parse(ContHeader)
         }
-        if(!download){
-            if (verboose === true){
-                axios
-                    .get(url, { headers: ContHeader })
-                    .then(res => {
-                        console.log(stats(`statusCode: ${res.status}`));
-                        console.log(response(res));
-                    })
-                    .catch(error => {
-                        let data = Object.values(error.response).includes('data');
-                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
-                        console.log(errors(error.response.status));
-                        console.log(errors(error.response.headers));
-                    });
-            } else{
-                axios
-                    .get(url, { headers: ContHeader })
-                    .then(res => {
-                        console.log(stats(`statusCode: ${res.status}`));
-                        console.log(response(res.data))
-                    })
-                    .catch(error => {
-                        let data = Object.values(error.response).includes('data');
-                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
-                        console.log(errors(error.response.status));
-                        console.log(errors(error.response.headers));
-                        console.log(ContHeader)
-                    });
-            };
+        if(!body){
+            if(!download){
+                if (verboose === true){
+                    axios
+                        .get(url, { headers: ContHeader })
+                        .then(res => {
+                            console.log(stats(`statusCode: ${res.status}`));
+                            console.log(response(res));
+                        })
+                        .catch(error => {
+                            let data = Object.values(error.response).includes('data');
+                            data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                            console.log(errors(error.response.status));
+                            console.log(errors(error.response.headers));
+                        });
+                } else{
+                    axios
+                        .get(url, { headers: ContHeader })
+                        .then(res => {
+                            console.log(stats(`statusCode: ${res.status}`));
+                            console.log(response(res.data))
+                        })
+                        .catch(error => {
+                            let data = Object.values(error.response).includes('data');
+                            data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                            console.log(errors(error.response.status));
+                            console.log(errors(error.response.headers));
+                            console.log(ContHeader)
+                        });
+                };
+            } else {
+                downloadFile(url, download)
+            }
         } else {
-            downloadFile(url, download)
+            if(!download){
+                if (verboose === true){
+                    axios
+                        .post(url, body, { headers: ContHeader })
+                        .then(res => {
+                            console.log(stats(`statusCode: ${res.status}`));
+                            console.log(response(res));
+                        })
+                        .catch(error => {
+                            let data = Object.values(error.response).includes('data');
+                            data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                            console.log(errors(error.response.status));
+                            console.log(errors(error.response.headers));
+                        });
+                } else{
+                    axios
+                        .post(url, body, { headers: ContHeader })
+                        .then(res => {
+                            console.log(stats(`statusCode: ${res.status}`));
+                            console.log(response(res.data))
+                        })
+                        .catch(error => {
+                            let data = Object.values(error.response).includes('data');
+                            data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                            console.log(errors(error.response.status));
+                            console.log(errors(error.response.headers));
+                            console.log(ContHeader)
+                        });
+                };
+            } else {
+                downloadFile(url, download)
+            }
         }
     };
 
@@ -159,53 +194,16 @@ export class client{
         }
     };
 
-    delete_url(url, verboose, ContHeader = false){
+    delete_url(url, verboose, ContHeader = false, body){
         if(ContHeader != false){
             var contHeader = JSON.parse(ContHeader)
         } else {
             var contHeader = {};    
         };
-        if(verboose == true){
-            axios
-                .delete(url, { headers: ContHeader })
-                .then(res => {
-                    console.log(stats(`statusCode: ${res.status}`));
-                    console.log(response(res));
-                })
-                .catch(error => {
-                    let data = Object.values(error.response).includes('data');
-                    data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
-                    console.log(errors(error.response.status));
-                    console.log(errors(error.response.headers));
-                });
-        } else {
-            axios
-                .delete(url, { headers: ContHeader })
-                .then(res => {
-                    console.log(stats(`statusCode: ${res.status}`));
-                    console.log(response(res.data));
-                })
-                .catch(error => {
-                    let data = Object.values(error.response).includes('data');
-                    data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
-                    console.log(errors(error.response.status));
-                    console.log(errors(error.response.headers));
-                });
-        }
-    };
-
-    put_url(url, type, data, verboose, ContHeader = false){
-        let contentHeader;
-        let jdata;
-        if(ContHeader != false){
-            contentHeader = JSON.parse(ContHeader)
-        } else {
-            contentHeader = {}
-        };
-        const put = (urla, jdata, verboosity , contentHeader) => {
-            if (verboosity === true){
+        if(!body){
+            if(verboose == true){
                 axios
-                    .put(urla, jdata, { headers: contentHeader })
+                    .delete(url, { headers: contHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
                         console.log(response(res));
@@ -218,17 +216,114 @@ export class client{
                     });
             } else {
                 axios
-                    .put(url, jdata, { headers: contentHeader })
+                    .delete(url, { headers: contHeader })
                     .then(res => {
                         console.log(stats(`statusCode: ${res.status}`));
-                        console.log(response(res.data))
+                        console.log(response(res.data));
                     })
                     .catch(error => {
                         let data = Object.values(error.response).includes('data');
                         data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
                         console.log(errors(error.response.status));
                         console.log(errors(error.response.headers));
+                    });
+            }
+        } else {
+            if(verboose == true){
+                axios
+                    .delete(url, { headers: contHeader, data: body })
+                    .then(res => {
+                        console.log(stats(`statusCode: ${res.status}`));
+                        console.log(response(res));
                     })
+                    .catch(error => {
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                        console.log(errors(error.response.status));
+                        console.log(errors(error.response.headers));
+                    });
+            } else {
+                axios
+                    .delete(url, { headers: contHeader, data: body })
+                    .then(res => {
+                        console.log(stats(`statusCode: ${res.status}`));
+                        console.log(response(res.data));
+                    })
+                    .catch(error => {
+                        let data = Object.values(error.response).includes('data');
+                        data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                        console.log(errors(error.response.status));
+                        console.log(errors(error.response.headers));
+                    });
+            }
+        }
+    };
+
+    put_url(url, type, data, verboose, ContHeader = false, body){
+        let contentHeader;
+        let jdata;
+        if(ContHeader != false){
+            contentHeader = JSON.parse(ContHeader)
+        } else {
+            contentHeader = {}
+        };
+        const put = (urla, jdata, verboosity , contentHeader) => {
+            if(!body){
+                if (verboosity === true){
+                    axios
+                        .put(urla, jdata, { headers: contentHeader })
+                        .then(res => {
+                            console.log(stats(`statusCode: ${res.status}`));
+                            console.log(response(res));
+                        })
+                        .catch(error => {
+                            let data = Object.values(error.response).includes('data');
+                            data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                            console.log(errors(error.response.status));
+                            console.log(errors(error.response.headers));
+                        });
+                } else {
+                    axios
+                        .put(url, jdata, { headers: contentHeader })
+                        .then(res => {
+                            console.log(stats(`statusCode: ${res.status}`));
+                            console.log(response(res.data))
+                        })
+                        .catch(error => {
+                            let data = Object.values(error.response).includes('data');
+                            data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                            console.log(errors(error.response.status));
+                            console.log(errors(error.response.headers));
+                        })
+                }
+            } else {
+                if (verboosity === true){
+                    axios
+                        .put(urla, jdata, { headers: contentHeader, data: body })
+                        .then(res => {
+                            console.log(stats(`statusCode: ${res.status}`));
+                            console.log(response(res));
+                        })
+                        .catch(error => {
+                            let data = Object.values(error.response).includes('data');
+                            data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                            console.log(errors(error.response.status));
+                            console.log(errors(error.response.headers));
+                        });
+                } else {
+                    axios
+                        .put(urla, jdata, { headers: contentHeader, data: body })
+                        .then(res => {
+                            console.log(stats(`statusCode: ${res.status}`));
+                            console.log(response(res.data));
+                        })
+                        .catch(error => {
+                            let data = Object.values(error.response).includes('data');
+                            data===true ? console.log(errors(error.response.data)) : console.log(errors('No data to log'));
+                            console.log(errors(error.response.status));
+                            console.log(errors(error.response.headers));
+                        });
+                }
             }
         };
         switch (type) {
