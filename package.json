@@ -1,6 +1,6 @@
 {
   "name": "zap-client",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "A terminal api client",
   "main": "src/index.js",
   "type": "module",
