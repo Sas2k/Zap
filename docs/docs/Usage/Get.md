@@ -15,8 +15,10 @@ sends a `GET` request to the specify URL.
 ### Local Flags
 
 #### download
+
 `-d | --download <file-name/location>`
 Using this you can download the output
+
 
 **Examples**
 ```bash

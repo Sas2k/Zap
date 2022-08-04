@@ -104,7 +104,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Zap!, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Sasen Perera, Built with Docusaurus and ❤.`,
       },
       prism: {
         theme: lightCodeTheme,
